@@ -1,5 +1,6 @@
-import { Org } from "../entities/org"
+import { Org } from '../entities/org'
 
-export interface OrgRepository {
-  create(org: Org): Promise<Org>
+export interface OrgsRepository {
+  create(org: Org): Promise<void>
+  findByEmail(email: string): Promise<Org | null>
 }
