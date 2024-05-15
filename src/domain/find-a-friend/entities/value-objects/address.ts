@@ -1,4 +1,4 @@
-interface AddressPros {
+export interface AddressPros {
   zipCode: string
   city: string
   state: string

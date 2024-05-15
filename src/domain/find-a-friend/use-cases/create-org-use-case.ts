@@ -3,6 +3,7 @@ import { Org } from '../entities/org'
 import { OrgsRepository } from '../repositories/orgs-repository'
 import { Address } from '../entities/value-objects/address'
 import { Either, left, right } from '@/core/either'
+import { HashProvider } from '../providers/hash-provider'
 
 type CreateOrgUseCaseRequest = {
   name: string
@@ -27,7 +28,10 @@ type CreateOrgUseCaseResponse = Either<
   }
 >
 export class CreateOrgUseCase {
-  constructor(private orgsRepository: OrgsRepository) {}
+  constructor(
+    private orgsRepository: OrgsRepository,
+    private hashProvider: HashProvider,
+  ) {}
 
   async execute({
     about,
@@ -59,12 +63,14 @@ export class CreateOrgUseCase {
       zipCode,
     })
 
+    const passwordHash = await this.hashProvider.hash(password)
+
     const org = Org.create({
       about,
       address,
       email,
       name,
-      password,
+      password: passwordHash,
       responsiblePersonName,
       whatsappLink,
     })
