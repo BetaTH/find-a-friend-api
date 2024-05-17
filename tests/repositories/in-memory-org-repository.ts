@@ -4,6 +4,14 @@ import { OrgsRepository } from '@/domain/find-a-friend/repositories/orgs-reposit
 export class InMemoryOrgsRepository implements OrgsRepository {
   public items: Org[] = []
 
+  async findById(id: string): Promise<Org | null> {
+    const org = this.items.find((item) => item.id.toString() === id)
+    if (!org) {
+      return null
+    }
+    return org
+  }
+
   async findByEmail(email: string) {
     const org = this.items.find((item) => item.email === email)
     if (!org) {

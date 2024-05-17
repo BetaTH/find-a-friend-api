@@ -5,7 +5,7 @@ import { Address } from '../entities/value-objects/address'
 import { Either, left, right } from '@/core/either'
 import { HashProvider } from '../providers/hash-provider'
 
-type CreateOrgUseCaseRequest = {
+export type CreateOrgUseCaseRequest = {
   name: string
   responsiblePersonName: string
   about: string

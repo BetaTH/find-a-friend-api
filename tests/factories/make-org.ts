@@ -1,8 +1,8 @@
-import { randomUUID } from 'crypto'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Org, OrgProps } from '@/domain/find-a-friend/entities/org'
 import { faker } from '@faker-js/faker'
 import { makeAddress } from './make-address'
+import { CreateOrgUseCaseRequest } from '@/domain/find-a-friend/use-cases/create-org-use-case'
 
 export class makeOrg {
   static makeOrgClass(overwrite?: Partial<OrgProps>, id?: UniqueEntityID) {
@@ -24,9 +24,8 @@ export class makeOrg {
     return org
   }
 
-  static makeOrgObject(overwrite?: Partial<OrgProps>) {
+  static makeOrgObject(overwrite?: Partial<CreateOrgUseCaseRequest>) {
     return {
-      id: randomUUID(),
       about: faker.lorem.sentence(10),
       responsiblePersonName: faker.person.fullName(),
       zipCode: faker.location.zipCode(),

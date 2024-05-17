@@ -1,8 +1,8 @@
-import { AggregateRoot } from '@/core/entities/aggregate-root'
+import { Entity } from '@/core/entities/entity'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 export interface PetProps {
-  orgId: string
+  orgId: UniqueEntityID
   name: string
   about: string
   age: string
@@ -14,7 +14,7 @@ export interface PetProps {
   requirements: string[]
 }
 
-export class Pet extends AggregateRoot<PetProps> {
+export class Pet extends Entity<PetProps> {
   static create(props: PetProps, id?: UniqueEntityID) {
     const pet = new Pet(
       {

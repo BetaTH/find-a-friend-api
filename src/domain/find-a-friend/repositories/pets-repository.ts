@@ -1,5 +1,5 @@
 import { Pet } from '../entities/pet'
 
-export interface PetsRepository {
-  create(pet: Pet): Promise<Pet>
+export abstract class PetsRepository {
+  abstract create(pet: Pet): Promise<void>
 }
