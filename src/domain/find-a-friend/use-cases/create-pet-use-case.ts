@@ -11,8 +11,8 @@ export type CreatePetUseCaseRequest = {
   about: string
   age: string
   size: string
-  energy: string
-  independency: string
+  energyLevel: string
+  independencyLevel: string
   environment: string
   pictures: string[]
   requirements: string[]
@@ -36,8 +36,8 @@ export class CreatePetUseCase {
     about,
     age,
     size,
-    energy,
-    independency,
+    energyLevel,
+    independencyLevel,
     environment,
     pictures,
     requirements,
@@ -54,8 +54,8 @@ export class CreatePetUseCase {
       about,
       age,
       size,
-      energy,
-      independency,
+      energyLevel,
+      independencyLevel,
       environment,
       pictures,
       requirements,

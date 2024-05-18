@@ -1,4 +1,4 @@
-export interface AddressPros {
+export interface AddressProps {
   zipCode: string
   city: string
   state: string
@@ -25,7 +25,7 @@ export class Address {
     complement,
     street,
     zipCode,
-  }: AddressPros) {
+  }: AddressProps) {
     this.zipCode = zipCode
     this.city = city
     this.state = state
@@ -35,7 +35,7 @@ export class Address {
     this.longitude = longitude
   }
 
-  static create(orgProps: AddressPros) {
+  static create(orgProps: AddressProps) {
     return new Address(orgProps)
   }
 }
