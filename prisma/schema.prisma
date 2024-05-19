@@ -26,12 +26,12 @@ model Pet {
 
 model Org {
   id                    String @id @default(uuid())
-  email                 String
-  password              String
+  email                 String @unique
+  passwordHash          String @map("password_hash")
   name                  String
   responsiblePersonName String
   about                 String
-  whatsappLink          String @map("whatsapp_link")
+  whatsappNumber        String @map("whatsapp_number")
   zipCode               String
   city                  String
   state                 String
