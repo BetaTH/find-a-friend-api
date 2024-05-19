@@ -14,7 +14,7 @@ export class makeOrg {
         email: faker.internet.email(),
         name: faker.company.name(),
         password: overwrite?.password ?? faker.internet.password(),
-        whatsappLink: faker.phone.number(),
+        whatsappNumber: faker.phone.number(),
         address,
         ...overwrite,
       },
@@ -38,7 +38,7 @@ export class makeOrg {
       password: faker.internet.password(),
       state: faker.location.state(),
       street: faker.location.street(),
-      whatsappLink: faker.phone.number(),
+      whatsappNumber: faker.phone.number(),
       ...overwrite,
     }
   }

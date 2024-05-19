@@ -9,7 +9,7 @@ export interface OrgProps {
   about: string
   address: Address
   password: string
-  whatsappLink: string
+  whatsappNumber: string
 }
 
 export class Org extends Entity<OrgProps> {
@@ -33,8 +33,8 @@ export class Org extends Entity<OrgProps> {
     return this.props.address
   }
 
-  get whatsappLink() {
-    return this.props.whatsappLink
+  get whatsappNumber() {
+    return this.props.whatsappNumber
   }
 
   async compareWithPassword(

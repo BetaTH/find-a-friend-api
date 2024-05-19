@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Pet {
+  id                String   @id @default(uuid())
+  name              String
+  about             String
+  age               String
+  size              String
+  energyLevel       String   @map("energy_level")
+  independencyLevel String   @map("independency_level")
+  pictures          String[]
+  requirements      String[]
+
+  org   Org    @relation(fields: [orgId], references: [id])
+  orgId String @map("org_id")
+
+  @@map("pets")
+}
+
+model Org {
+  id                    String @id @default(uuid())
+  email                 String
+  password              String
+  name                  String
+  responsiblePersonName String
+  about                 String
+  whatsappLink          String @map("whatsapp_link")
+  zipCode               String
+  city                  String
+  state                 String
+  street                String
+  complement            String
+  pets                  Pet[]
+
+  @@map("orgs")
+}
