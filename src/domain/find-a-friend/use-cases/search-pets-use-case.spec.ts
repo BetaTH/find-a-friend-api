@@ -50,8 +50,6 @@ describe('Search Pet', () => {
       ),
     )
 
-    console.log(petsRepository.items)
-
     const result = await sut.execute({ city: 'Teresina', state: 'PI' })
 
     expect(result.isRight).toBe(true)
@@ -93,8 +91,6 @@ describe('Search Pet', () => {
         new UniqueEntityID('pet-3'),
       ),
     )
-
-    console.log(petsRepository.items)
 
     const result = await sut.execute({
       city: 'Teresina',
@@ -149,8 +145,6 @@ describe('Search Pet', () => {
         new UniqueEntityID('pet-3'),
       ),
     )
-
-    console.log(petsRepository.items)
 
     const result = await sut.execute({
       city: 'Teresina',
