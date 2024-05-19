@@ -37,6 +37,16 @@ export class Org extends Entity<OrgProps> {
     return this.props.whatsappLink
   }
 
+  async compareWithPassword(
+    password: string,
+    compareFunction: (
+      password: string,
+      hashedPassword: string,
+    ) => Promise<boolean>,
+  ) {
+    return await compareFunction(password, this.props.password)
+  }
+
   static create(props: OrgProps, id?: UniqueEntityID) {
     const org = new Org(
       {
