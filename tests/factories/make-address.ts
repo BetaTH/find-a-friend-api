@@ -9,8 +9,6 @@ export function makeAddress(overwrite?: Partial<AddressProps>) {
     city: faker.location.city(),
     state: faker.location.state(),
     zipCode: faker.location.zipCode(),
-    latitude: faker.location.latitude(),
-    longitude: faker.location.longitude(),
     complement: faker.location.streetAddress(),
     street: faker.location.street(),
     ...overwrite,
