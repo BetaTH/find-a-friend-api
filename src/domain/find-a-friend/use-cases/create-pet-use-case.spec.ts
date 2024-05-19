@@ -6,6 +6,7 @@ import { InMemoryPetsRepository } from 'tests/repositories/in-memory-pet-reposit
 import { makeOrg } from 'tests/factories/make-org'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
+import { InvalidValueError } from '@/core/errors/errors/invalid-value'
 
 let petsRepository: InMemoryPetsRepository
 let orgRepository: InMemoryOrgsRepository
@@ -36,5 +37,17 @@ describe('Create Pet', () => {
 
     expect(result.isRight).toBe(false)
     expect(result.value).toBeInstanceOf(ResourceNotFoundError)
+  })
+
+  it('should not be able to create a pet with wrong value', async () => {
+    orgRepository.items.push(
+      makeOrg.makeOrgClass({}, new UniqueEntityID('test')),
+    )
+    const result = await sut.execute(
+      makePet.makePetObject({ orgId: 'test', energyLevel: 'wrong value' }),
+    )
+
+    expect(result.isRight).toBe(false)
+    expect(result.value).toBeInstanceOf(InvalidValueError)
   })
 })

@@ -4,6 +4,10 @@ import { Either, left, right } from '@/core/either'
 import { OrgsRepository } from '../repositories/orgs-repository'
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { SizeVO } from '../entities/value-objects/size'
+import { InvalidValueError } from '@/core/errors/errors/invalid-value'
+import { EnergyLevelVO } from '../entities/value-objects/energy-level'
+import { IndependencyLevelVO } from '../entities/value-objects/independency-level'
 
 export type CreatePetUseCaseRequest = {
   orgId: string
@@ -13,13 +17,12 @@ export type CreatePetUseCaseRequest = {
   size: string
   energyLevel: string
   independencyLevel: string
-  environment: string
   pictures: string[]
   requirements: string[]
 }
 
 type CreatePetUseCaseResponse = Either<
-  ResourceNotFoundError,
+  ResourceNotFoundError | InvalidValueError,
   {
     pet: Pet
   }
@@ -38,7 +41,6 @@ export class CreatePetUseCase {
     size,
     energyLevel,
     independencyLevel,
-    environment,
     pictures,
     requirements,
   }: CreatePetUseCaseRequest): Promise<CreatePetUseCaseResponse> {
@@ -48,15 +50,33 @@ export class CreatePetUseCase {
       return left(new ResourceNotFoundError())
     }
 
+    const sizeOrError = SizeVO.create(size)
+    const energyLevelOrError = EnergyLevelVO.create(energyLevel)
+    const independencyLevelOrError =
+      IndependencyLevelVO.create(independencyLevel)
+    if (
+      sizeOrError.isLeft ||
+      energyLevelOrError.isLeft ||
+      independencyLevelOrError.isLeft
+    ) {
+      return left(
+        new InvalidValueError(
+          `Invalid values: { 
+            ${sizeOrError.isLeft && `size: ${size},`} 
+            ${energyLevelOrError.isLeft && `energyLevel: ${energyLevel},`} 
+            ${independencyLevelOrError.isLeft && `independencyLevel: ${independencyLevel},`} } `,
+        ),
+      )
+    }
+
     const pet = Pet.create({
       orgId: new UniqueEntityID(orgId),
       name,
       about,
       age,
-      size,
-      energyLevel,
-      independencyLevel,
-      environment,
+      size: sizeOrError.value.value,
+      energyLevel: energyLevelOrError.value.value,
+      independencyLevel: independencyLevelOrError.value.value,
       pictures,
       requirements,
     })

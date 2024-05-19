@@ -1,15 +1,17 @@
 import { Entity } from '@/core/entities/entity'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { Size } from './value-objects/size'
+import { EnergyLevel } from './value-objects/energy-level'
+import { IndependencyLevel } from './value-objects/independency-level'
 
 export interface PetProps {
   orgId: UniqueEntityID
   name: string
   about: string
   age: string
-  size: string
-  energyLevel: string
-  independencyLevel: string
-  environment: string
+  size: Size
+  energyLevel: EnergyLevel
+  independencyLevel: IndependencyLevel
   pictures: string[]
   requirements: string[]
 }
@@ -37,10 +39,6 @@ export class Pet extends Entity<PetProps> {
 
   get independencyLevel() {
     return this.props.independencyLevel
-  }
-
-  get environment() {
-    return this.props.environment
   }
 
   get pictures() {
