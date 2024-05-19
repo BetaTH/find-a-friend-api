@@ -19,7 +19,7 @@ describe('Authenticate Org', () => {
   it('should be able to authenticate a org', async () => {
     const org = makeOrg.makeOrgClass({
       email: 'thielson12@gmail.com',
-      password: '123456789',
+      passwordHash: '123456789',
     })
 
     orgsRepository.items.push(org)
@@ -38,7 +38,7 @@ describe('Authenticate Org', () => {
   it('should not be able to authenticate a org with a wrong email or password', async () => {
     const org = makeOrg.makeOrgClass({
       email: 'thielson12@gmail.com',
-      password: '123456789',
+      passwordHash: '123456789',
     })
 
     orgsRepository.items.push(org)

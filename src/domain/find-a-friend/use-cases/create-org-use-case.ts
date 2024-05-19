@@ -10,15 +10,13 @@ export type CreateOrgUseCaseRequest = {
   responsiblePersonName: string
   about: string
   email: string
-  whatsappLink: string
+  whatsappNumber: string
   password: string
   zipCode: string
   state: string
   city: string
   complement: string
   street: string
-  latitude: number
-  longitude: number
 }
 
 type CreateOrgUseCaseResponse = Either<
@@ -38,15 +36,13 @@ export class CreateOrgUseCase {
     name,
     responsiblePersonName,
     email,
-    whatsappLink,
+    whatsappNumber,
     password,
     zipCode,
     state,
     city,
     complement,
     street,
-    latitude,
-    longitude,
   }: CreateOrgUseCaseRequest): Promise<CreateOrgUseCaseResponse> {
     const orgByEmail = await this.orgsRepository.findByEmail(email)
 
@@ -58,8 +54,6 @@ export class CreateOrgUseCase {
       complement,
       state,
       street,
-      latitude,
-      longitude,
       zipCode,
     })
 
@@ -70,9 +64,9 @@ export class CreateOrgUseCase {
       address,
       email,
       name,
-      password: passwordHash,
+      passwordHash,
       responsiblePersonName,
-      whatsappLink,
+      whatsappNumber,
     })
 
     await this.orgsRepository.create(org)

@@ -32,11 +32,10 @@ export class AuthenticateOrgUseCase {
       return left(new InvalidCredentialsError())
     }
 
-    const doestPasswordMatches = await org.compareWithPassword(
+    const doestPasswordMatches = await this.hashProvider.compare(
       password,
-      this.hashProvider.compare,
+      org.passwordHash,
     )
-
     if (!doestPasswordMatches) {
       return left(new InvalidCredentialsError())
     }

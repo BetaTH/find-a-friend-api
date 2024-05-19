@@ -8,7 +8,7 @@ export interface OrgProps {
   email: string
   about: string
   address: Address
-  password: string
+  passwordHash: string
   whatsappNumber: string
 }
 
@@ -33,18 +33,12 @@ export class Org extends Entity<OrgProps> {
     return this.props.address
   }
 
-  get whatsappNumber() {
-    return this.props.whatsappNumber
+  get passwordHash() {
+    return this.props.passwordHash
   }
 
-  async compareWithPassword(
-    password: string,
-    compareFunction: (
-      password: string,
-      hashedPassword: string,
-    ) => Promise<boolean>,
-  ) {
-    return await compareFunction(password, this.props.password)
+  get whatsappNumber() {
+    return this.props.whatsappNumber
   }
 
   static create(props: OrgProps, id?: UniqueEntityID) {

@@ -25,6 +25,10 @@ export class Pet extends Entity<PetProps> {
     return this.props.name
   }
 
+  get about() {
+    return this.props.about
+  }
+
   get age() {
     return this.props.age
   }

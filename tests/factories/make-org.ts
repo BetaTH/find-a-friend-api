@@ -13,7 +13,7 @@ export class makeOrg {
         responsiblePersonName: faker.person.fullName(),
         email: faker.internet.email(),
         name: faker.company.name(),
-        password: overwrite?.password ?? faker.internet.password(),
+        passwordHash: overwrite?.passwordHash ?? faker.internet.password(),
         whatsappNumber: faker.phone.number(),
         address,
         ...overwrite,
