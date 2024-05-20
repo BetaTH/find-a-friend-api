@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify'
-import { hello } from './hello-word'
+import { create } from './create'
 
 export async function orgsRoutes(app: FastifyInstance) {
-  app.get('/orgs', hello)
+  app.post('/orgs', create)
 }

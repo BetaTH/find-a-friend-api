@@ -1,4 +1,4 @@
-export interface HashProvider {
-  hash(value: string): Promise<string>
-  compare(value: string, hashValue: string): Promise<boolean>
+export abstract class HashProvider {
+  abstract hash(value: string): Promise<string>
+  abstract compare(value: string, hashValue: string): Promise<boolean>
 }

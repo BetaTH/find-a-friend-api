@@ -1,6 +1,6 @@
 import fastify from 'fastify'
 import { ZodError } from 'zod'
-import { env } from './env'
+import { env } from './lib/env'
 import { petsRoutes } from './http/controllers/pets/routes'
 import { orgsRoutes } from './http/controllers/orgs/routes'
 
