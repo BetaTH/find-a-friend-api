@@ -2,19 +2,21 @@ import { makePet } from 'tests/factories/make-pet'
 import { InMemoryPetsRepository } from 'tests/repositories/in-memory-pet-repository'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { InMemoryOrgsRepository } from 'tests/repositories/in-memory-org-repository'
-import { SearchPetUseCase } from './search-pets-use-case'
+import { SearchPetsUseCase } from './search-pets-use-case'
 import { makeOrg } from 'tests/factories/make-org'
 import { makeAddress } from 'tests/factories/make-address'
+import { Size } from '../entities/value-objects/size'
+import { EnergyLevel } from '../entities/value-objects/energy-level'
 
 let orgRepository: InMemoryOrgsRepository
 let petsRepository: InMemoryPetsRepository
-let sut: SearchPetUseCase
+let sut: SearchPetsUseCase
 
 describe('Search Pet', () => {
   beforeEach(() => {
     orgRepository = new InMemoryOrgsRepository()
     petsRepository = new InMemoryPetsRepository(orgRepository)
-    sut = new SearchPetUseCase(petsRepository)
+    sut = new SearchPetsUseCase(petsRepository)
   })
 
   it('should be able to search a pet by state and city', async () => {
@@ -80,7 +82,7 @@ describe('Search Pet', () => {
     )
     petsRepository.items.push(
       makePet.makePetClass(
-        { orgId: new UniqueEntityID('org-2'), size: 'Filhotinho' },
+        { orgId: new UniqueEntityID('org-2'), size: Size.LITTLE },
         new UniqueEntityID('pet-2'),
       ),
     )
@@ -122,8 +124,8 @@ describe('Search Pet', () => {
       makePet.makePetClass(
         {
           orgId: new UniqueEntityID('org-1'),
-          size: 'Filhotinho',
-          energyLevel: 'Ótimo',
+          size: Size.LITTLE,
+          energyLevel: EnergyLevel.HIGH,
         },
         new UniqueEntityID('pet-1'),
       ),
@@ -132,8 +134,8 @@ describe('Search Pet', () => {
       makePet.makePetClass(
         {
           orgId: new UniqueEntityID('org-2'),
-          size: 'Filhotinho',
-          energyLevel: 'muito bom',
+          size: Size.LITTLE,
+          energyLevel: EnergyLevel.LOW,
         },
         new UniqueEntityID('pet-2'),
       ),
