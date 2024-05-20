@@ -2,7 +2,7 @@ import { Pet } from '../entities/pet'
 import { PetsRepository } from '../repositories/pets-repository'
 import { Either, right } from '@/core/either'
 
-export type SearchPetUseCaseRequest = {
+export type SearchPetsUseCaseRequest = {
   state: string
   city: string
   age?: string
@@ -12,18 +12,18 @@ export type SearchPetUseCaseRequest = {
   environment?: string
 }
 
-type SearchPetUseCaseResponse = Either<
+type SearchPetsUseCaseResponse = Either<
   null,
   {
     pets: Pet[]
   }
 >
-export class SearchPetUseCase {
+export class SearchPetsUseCase {
   constructor(private petsRepository: PetsRepository) {}
 
   async execute(
-    requestData: SearchPetUseCaseRequest,
-  ): Promise<SearchPetUseCaseResponse> {
+    requestData: SearchPetsUseCaseRequest,
+  ): Promise<SearchPetsUseCaseResponse> {
     const pets = await this.petsRepository.findAll(requestData)
     return right({ pets })
   }
