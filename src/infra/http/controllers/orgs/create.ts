@@ -1,5 +1,5 @@
 import { AlreadyExistsError } from '@/core/errors/errors/already-exists-error'
-import { makeCreateOrgUseCase } from '@/infra/factories/use-cases/make-org-use-case'
+import { makeCreateOrgUseCase } from '@/infra/factories/use-cases/make-create-org-use-case'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
