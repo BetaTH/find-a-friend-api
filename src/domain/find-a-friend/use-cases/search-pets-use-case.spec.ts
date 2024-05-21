@@ -97,7 +97,7 @@ describe('Search Pet', () => {
     const result = await sut.execute({
       city: 'Teresina',
       state: 'PI',
-      size: 'Filhotinho',
+      size: Size.LITTLE,
     })
 
     expect(result.isRight).toBe(true)
@@ -151,8 +151,8 @@ describe('Search Pet', () => {
     const result = await sut.execute({
       city: 'Teresina',
       state: 'PI',
-      size: 'Filhotinho',
-      energyLevel: 'muito bom',
+      size: 'Pequenino',
+      energyLevel: 'Baixo',
     })
 
     expect(result.isRight).toBe(true)

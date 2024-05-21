@@ -26,19 +26,17 @@ export class makeOrg {
 
   static makeOrgObject(overwrite?: Partial<CreateOrgUseCaseRequest>) {
     return {
-      about: faker.lorem.sentence(10),
-      responsiblePersonName: faker.person.fullName(),
-      zipCode: faker.location.zipCode(),
-      city: faker.location.city(),
-      email: faker.internet.email(),
-      latitude: faker.location.latitude(),
-      longitude: faker.location.longitude(),
       name: faker.company.name(),
-      complement: faker.location.streetAddress(),
-      password: faker.internet.password(),
-      state: faker.location.state(),
-      street: faker.location.street(),
+      responsiblePersonName: faker.person.fullName(),
+      about: faker.lorem.sentence(10),
+      email: faker.internet.email(),
       whatsappNumber: faker.phone.number(),
+      password: faker.internet.password(),
+      zipCode: faker.location.zipCode(),
+      state: faker.location.state(),
+      city: faker.location.city(),
+      complement: faker.location.streetAddress(),
+      street: faker.location.street(),
       ...overwrite,
     }
   }

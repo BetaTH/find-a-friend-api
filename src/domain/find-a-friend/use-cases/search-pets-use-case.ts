@@ -9,7 +9,6 @@ export type SearchPetsUseCaseRequest = {
   energyLevel?: string
   size?: string
   independencyLevel?: string
-  environment?: string
 }
 
 type SearchPetsUseCaseResponse = Either<

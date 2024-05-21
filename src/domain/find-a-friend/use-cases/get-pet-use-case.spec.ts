@@ -22,7 +22,7 @@ describe('Get Pet', () => {
       makePet.makePetClass({}, new UniqueEntityID('test')),
     )
 
-    const result = await sut.execute({ id: 'test' })
+    const result = await sut.execute({ petId: 'test' })
 
     expect(result.isRight).toBe(true)
     expect(result.value).toHaveProperty('pet')
@@ -32,7 +32,7 @@ describe('Get Pet', () => {
   })
 
   it('should not be able to get inexistent a pet', async () => {
-    const result = await sut.execute({ id: 'test' })
+    const result = await sut.execute({ petId: 'test' })
 
     expect(result.isRight).toBe(false)
     expect(result.value).toBeInstanceOf(ResourceNotFoundError)

@@ -25,7 +25,9 @@ export async function create(req: FastifyRequest, res: FastifyReply) {
   const result = await creteOrgUseCase.execute(createOrgBody)
 
   if (result.isRight) {
-    return res.status(201)
+    return res.status(201).send({
+      org: result.value.org,
+    })
   }
 
   if (result.value instanceof AlreadyExistsError) {

@@ -4,7 +4,7 @@ import { Either, left, right } from '@/core/either'
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 
 export type GetPetUseCaseRequest = {
-  id: string
+  petId: string
 }
 
 type GetPetUseCaseResponse = Either<
@@ -16,8 +16,10 @@ type GetPetUseCaseResponse = Either<
 export class GetPetUseCase {
   constructor(private petsRepository: PetsRepository) {}
 
-  async execute({ id }: GetPetUseCaseRequest): Promise<GetPetUseCaseResponse> {
-    const pet = await this.petsRepository.findById(id)
+  async execute({
+    petId,
+  }: GetPetUseCaseRequest): Promise<GetPetUseCaseResponse> {
+    const pet = await this.petsRepository.findById(petId)
 
     if (!pet) {
       return left(new ResourceNotFoundError())
