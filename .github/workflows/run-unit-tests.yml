@@ -17,6 +17,5 @@ jobs:
           version: 9
           run_install: false
 
-      - run: cp .env.example .env
       - run: pnpm install --frozen-lockfile
       - run: pnpm run test
