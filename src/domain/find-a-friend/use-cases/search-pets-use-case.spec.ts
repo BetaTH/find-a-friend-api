@@ -73,10 +73,9 @@ describe('Search Pet', () => {
     orgRepository.items.push(
       makeOrg.makeOrgClass({ address: address02 }, new UniqueEntityID('org-3')),
     )
-
     petsRepository.items.push(
       makePet.makePetClass(
-        { orgId: new UniqueEntityID('org-1') },
+        { orgId: new UniqueEntityID('org-1'), size: Size.LARGE },
         new UniqueEntityID('pet-1'),
       ),
     )
@@ -86,10 +85,9 @@ describe('Search Pet', () => {
         new UniqueEntityID('pet-2'),
       ),
     )
-
     petsRepository.items.push(
       makePet.makePetClass(
-        { orgId: new UniqueEntityID('org-3') },
+        { orgId: new UniqueEntityID('org-3'), size: Size.LARGE },
         new UniqueEntityID('pet-3'),
       ),
     )

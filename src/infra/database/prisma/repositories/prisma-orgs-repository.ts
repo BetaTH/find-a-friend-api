@@ -2,7 +2,6 @@ import { OrgsRepository } from '@/domain/find-a-friend/repositories/orgs-reposit
 import { PrismaOrgMapper } from '../mappers/prisma-org-mapper'
 import { prisma } from '../prisma'
 import { Org } from '@/domain/find-a-friend/entities/org'
-
 export class PrismaOrgsRepository implements OrgsRepository {
   async findByEmail(email: string): Promise<Org | null> {
     const orgPrisma = await prisma.org.findUnique({

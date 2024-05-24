@@ -1,6 +1,6 @@
 import { Pet } from '@/domain/find-a-friend/entities/pet'
 import { PetsRepository } from '@/domain/find-a-friend/repositories/pets-repository'
-import { SearchPetUseCaseRequest } from '@/domain/find-a-friend/use-cases/search-pets-use-case'
+import { SearchPetsUseCaseRequest } from '@/domain/find-a-friend/use-cases/search-pets-use-case'
 import { PrismaPetMapper } from '../mappers/prisma-pet-mapper'
 import { prisma } from '../prisma'
 
@@ -29,7 +29,7 @@ export class PrismaPetsRepository implements PetsRepository {
     return pet
   }
 
-  async findAll(params: SearchPetUseCaseRequest) {
+  async findAll(params: SearchPetsUseCaseRequest) {
     const petsPrisma = await prisma.pet.findMany({
       where: {
         age: params.age,
