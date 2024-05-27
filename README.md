@@ -49,7 +49,7 @@ A aplicação segue os seguintes padrões de design:
 
 ## 🔧 Rodando o Projeto
 
-Para rodar essa aplicação, é necessário ter instalado o [NodeJS](https://golang.org/) e [Docker](https://www.docker.com/) na sua máquina.
+Para rodar essa aplicação, é necessário ter instalado o [NodeJS](https://nodejs.org/en) e [Docker](https://www.docker.com/) na sua máquina.
 
 - Execute o comando `cp .env.example .env` para criar arquivos de variáveis de ambiente.
 - Inicie os serviços do Docker usando: `docker-compose up -d`
