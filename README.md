@@ -66,13 +66,16 @@ Para rodar essa aplicação, é necessário ter instalado o [NodeJS](https://gol
 
 - Execute o comando `pnpm test` para rodar os testes unitarios
 
-## 🧑‍💻 Possible improvements
+## 🧑‍💻 Em construção
 
 - [ ] Adicionar o swagger para documentar melhor as rotas da API
 - [ ] Adicionar fluxo de upload de imagens do pets
-- [ ] Adicionar controle dos pets já adotados
-- [ ] Possibilidade de remover um pet
 - [ ] Adicionar testes end-to-end
+
+## 🧑‍💻 Possíveis Melhorias
+
+- Adicionar controle dos pets já adotados
+- Possibilidade de remover um pet
 
 ## 📄 Licensa
 
