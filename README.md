@@ -15,7 +15,7 @@ Esse projeto faz parte de um desafio do curso de NodeJS da [Rocketseat](https://
 ## 👨‍💻 Tecnologias
 
 - [Javascript/Typescript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript): Linguagem de programção principal.
-- [NodeJS](https://nodejs.org/en): Plataforma para executar JavaScript no backend.
+- [NodeJS](https://nodejs.org/): Plataforma para executar JavaScript no backend.
 - [PostgreSQL](https://www.postgresql.org/): Banco de dados utilizado na aplicação.
 - [Fastify](https://fastify.dev/): Web framework para construir APIs no NodeJS.
 - [Prisma ORM](https://www.prisma.io/): ORM para comunicação com o banco de dados.
@@ -49,7 +49,7 @@ A aplicação segue os seguintes padrões de design:
 
 ## 🔧 Rodando o Projeto
 
-Para rodar essa aplicação, é necessário ter instalado o [NodeJS](https://nodejs.org/en) e [Docker](https://www.docker.com/) na sua máquina.
+Para rodar essa aplicação, é necessário ter instalado o [NodeJS](https://nodejs.org/) e [Docker](https://www.docker.com/) na sua máquina.
 
 - Execute o comando `cp .env.example .env` para criar arquivos de variáveis de ambiente.
 - Inicie os serviços do Docker usando: `docker-compose up -d`
