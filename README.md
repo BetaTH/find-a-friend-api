@@ -77,7 +77,7 @@ Para rodar essa aplicação, é necessário ter instalado o [NodeJS](https://gol
 - Adicionar controle dos pets já adotados
 - Possibilidade de remover um pet
 
-## 📄 Licensa
+## 📄 Licença
 
 Este projeto está sob a licença MIT. Acesse o link [LICENSE](https://mit-license.org/) para mais detalhes.
 
