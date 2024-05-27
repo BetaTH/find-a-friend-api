@@ -33,7 +33,6 @@ A aplicação segue os seguintes padrões de design:
 
 4. **Testes Automatizados**: Testes unitários são escritos para garantir a qualidade do código.
 
-
 ## 🎯 Principais Recursos
 
 - [x] Se cadastrar como organização
@@ -42,17 +41,15 @@ A aplicação segue os seguintes padrões de design:
 - [x] Pesquisar pets por cidade e estado, como também por características 
 - [x] Obter detalhes de um pet e da org em que ele está
 
+## 🧑‍💻 Em construção
+
+- [ ] Adicionar o swagger para documentar melhor as rotas da API
+- [ ] Adicionar fluxo de upload de imagens do pets
+- [x] Adicionar testes end-to-end
+
 ## 🔧 Rodando o Projeto
 
 Para rodar essa aplicação, é necessário ter instalado o [NodeJS](https://golang.org/) e [Docker](https://www.docker.com/) na sua máquina.
-
-- Run the command `cp .env.example .env` to create environment variable files.
-- Start the docker services using: `docker-compose up -d`
-- Run the command `pnpm i` to download the dependencies. You can use the package manager you prefer
-- Run the command `pnpm prisma migrate deploy` to apply the migrations to the database.
-- Run the command `pnpm prisma db seed` to populate the database with some initial data
-- Run the command `pnpm dev` to start the application.
-- Open the `client.http` file at the root of the project to call the http route that performs the operation. It is important to have the [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension installed in VsCode
 
 - Execute o comando `cp .env.example .env` para criar arquivos de variáveis de ambiente.
 - Inicie os serviços do Docker usando: `docker-compose up -d`
@@ -61,16 +58,9 @@ Para rodar essa aplicação, é necessário ter instalado o [NodeJS](https://gol
 - Execute o comando `pnpm build` para buildar a aplicação.
 - Execute o comando `pnpm start` para rodar a aplicação.
 
-
 ## 🧪 Testes Automatizados
 
 - Execute o comando `pnpm test` para rodar os testes unitarios
-
-## 🧑‍💻 Em construção
-
-- [ ] Adicionar o swagger para documentar melhor as rotas da API
-- [ ] Adicionar fluxo de upload de imagens do pets
-- [ ] Adicionar testes end-to-end
 
 ## 🧑‍💻 Possíveis Melhorias
 
